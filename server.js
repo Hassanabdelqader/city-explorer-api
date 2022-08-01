@@ -53,7 +53,7 @@ app.get('*', (req, res) => {
     res.status(406).send('Not Found');
 });
 
-app.listen(443, () => {
+app.listen(PORT, () => {
     console.log('Server listening ...');
 })
 
