@@ -35,9 +35,9 @@ app.get('/', (req, res) => {
 
 });
 
-// app.get('/weather', getWeatherData)
+app.get('/weather', getWeatherData)
 
-// app.get('/movies', handlemovies);
+app.get('/movies', handlemovies);
 
 app.get('*', (req, res) => {
 
