@@ -6,7 +6,7 @@ const myJson = require('./data/weather.json');
 
 const cors = require("cors");
 
-const PORT = 3001;
+const PORT = process.env.PORT ||3001;
 
 const counter = 0;
 
@@ -39,14 +39,13 @@ app.get('/', (req, res) => {
 
 // app.get('/movies', handlemovies);
 
-
 app.get('*', (req, res) => {
 
     res.status(406).send('Not Found');
 });
 
-app.listen(PORT, () => {
-    console.log('Server listening ...');
+app.listen(process.env.PORT || 5000, () => {
+    console.log('Server listening ...', PORT);
 })
 
 
