@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const myJson = require('./data/weather.json');
 
+const cors = require("cors");
+
 const PORT = 3001;
 
 const KEY = process.env.MOVIE_API_KEY || `55325b5628dbe9dd987f442fdc49f072` ;
@@ -19,7 +21,7 @@ const app = express();
 const returnedWeather = [];
 
 const returnedMovies = [];
-
+app.use(cors());
 
 class weatherClass{
 	constructor(Date,Discription){
@@ -44,11 +46,11 @@ class moviesClass{
 }
 
 app.get('/', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    // res.header(
+    //   "Access-Control-Allow-Headers",
+    //   "Origin, X-Requested-With, Content-Type, Accept"
+    // );
 
   console.log('hi');
   res.send('Hi');
@@ -56,11 +58,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    // res.header(
+    //   "Access-Control-Allow-Headers",
+    //   "Origin, X-Requested-With, Content-Type, Accept"
+    // );
 
     let lat = req.query.lat;
     let lon = req.query.lon;
@@ -74,11 +76,11 @@ getWeatherData(url,req,res);
 
 
 app.get('/movies', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
+    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    // res.header(
+    //   "Access-Control-Allow-Headers",
+    //   "Origin, X-Requested-With, Content-Type, Accept"
+    // );
     let querya = req.query.query;
 
 let url2 =`${MovieURL}api_key=${KEY}&query=${querya}`;
