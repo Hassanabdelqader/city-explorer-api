@@ -8,6 +8,8 @@ const cors = require("cors");
 
 const PORT = 3001;
 
+const counter = 0;
+
 const  getWeatherData = require('./modules/weather')
 
 
