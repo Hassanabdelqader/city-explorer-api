@@ -43,7 +43,7 @@ async function handlemovies(req, res){
 // }).catch((err)=>{
 //     res.status(404).send('Wrong in getting data');
 // })
-res.status(200).send('Movies Work');
+res.status(200).send('Movies Work HIi');
 };
 
 
