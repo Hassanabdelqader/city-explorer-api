@@ -86,6 +86,7 @@ app.listen(PORT, () => {
 })
 
 let getWeatherData = async  (url,req,res)=>{
+    let c= 0;
     await axios.get(url).then((value)=>{
 
        
