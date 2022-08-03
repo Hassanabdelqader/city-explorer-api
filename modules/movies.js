@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 
-const returnedMovies = [];
+
 
 const KEY = process.env.MOVIE_API_KEY || `55325b5628dbe9dd987f442fdc49f072` ;
 
@@ -26,7 +26,7 @@ class moviesClass{
 
 
 async function handlemovies(req, res){
-
+    const returnedMovies = [];
 let querya = req.query.query;
 
 let url2 =`${MovieURL}api_key=${KEY}&query=${querya}`;

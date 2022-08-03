@@ -3,7 +3,7 @@
 
 const axios = require('axios');
 
-const returnedWeather = [];
+
 
 class weatherClass {
     constructor(Date, Discription) {
@@ -16,7 +16,7 @@ class weatherClass {
 }
 
 async function getWeatherData(req, res) {
-
+    const returnedWeather = [];
     let lat = req.query.lat;
     let lon = req.query.lon;
     let url3 = `${process.env.WEATHER_API_URL}&lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
