@@ -45,7 +45,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT || 5000, () => {
-    console.log('Server listening ...', PORT);
+    console.log('Server is listening  now ...', PORT);
 })
 
 
