@@ -10,7 +10,7 @@ const PORT = 3001;
 
 const counter = 0;
 
-const  getWeatherData = require('./modules/weather')
+const  getWeatherData = require('./modules/weather');
 
 
 const  handlemovies = require('./modules/movies');
@@ -31,14 +31,13 @@ app.use(cors());
 
 app.get('/', (req, res) => {
 
-  console.log('hi');
   res.send('Hi');
 
 });
 
-app.get('/weather', getWeatherData)
+// app.get('/weather', getWeatherData)
 
-app.get('/movies', handlemovies);
+// app.get('/movies', handlemovies);
 
 
 app.get('*', (req, res) => {
