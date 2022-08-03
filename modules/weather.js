@@ -29,7 +29,7 @@ async function getWeatherData(req, res) {
         });
         res.status(200).send(returnedWeather.splice(0, Math.min(20, returnedWeather.length)));
     }).catch((err) => {
-        res.status(404).send('Not Found');
+        res.status(404).send('Not Found from weather');
     })
 
 }

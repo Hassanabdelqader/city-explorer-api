@@ -33,7 +33,7 @@ let url2 =`${MovieURL}api_key=${KEY}&query=${querya}`;
 let url= `https://api.themoviedb.org/3/search/movie?api_key=55325b5628dbe9dd987f442fdc49f072&query=amman`;
 // Make a request for a user with a given ID
 
-await axios.get(url2).then((value)=>{
+await axios.get(url).then((value)=>{
     for (let index = 0; index < Math.min(value.data.total_results||0,20); index++) {           
         let obj = new moviesClass(value.data.results[index]);
         returnedMovies.push(obj); 
