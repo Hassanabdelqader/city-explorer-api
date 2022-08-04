@@ -5,6 +5,7 @@ const axios = require('axios');
 
 
 
+const cash ={};
 class weatherClass {
     constructor(Date, Discription) {
         this.Date = Date;
@@ -16,10 +17,12 @@ class weatherClass {
 }
 
 async function getWeatherData(req, res) {
-    const returnedWeather = [];
-    let lat = req.query.lat;
-    let lon = req.query.lon;
-    let url3 = `${process.env.WEATHER_API_URL}&lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
+   
+    if(cash[req.query.query.toLowerCase()] === undefined){
+            const returnedWeather = [];
+            let lat = req.query.lat;
+            let lon = req.query.lon;
+            let url3 = `${process.env.WEATHER_API_URL}&lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
 
     let c = 0;
     await axios.get(url3).then((value) => {
@@ -27,10 +30,17 @@ async function getWeatherData(req, res) {
             let obj = new weatherClass(element.datetime, `Low of ${element.low_temp}, high of ${element.max_temp} with ${element.weather.description}`);
             returnedWeather.push(obj);
         });
-        res.status(200).send(returnedWeather.splice(0, Math.min(20, returnedWeather.length)));
+        cash[req.query.query.toLowerCase()]  = returnedWeather.splice(0, Math.min(20, returnedWeather.length))
+        res.status(200).send(cash[req.query.query.toLowerCase()]);
     }).catch((err) => {
         res.status(404).send('Not Found from weather');
     })
+    }else {
+        res.status(200).send(cash[req.query.query.toLowerCase()]);
+    }
+    
+
+   
 
 }
 
