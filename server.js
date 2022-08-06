@@ -15,6 +15,8 @@ const  getWeatherData = require('./modules/weather');
 
 const  handlemovies = require('./modules/movies');
 
+const getDogs = require('./modules/dog');
+
 const KEY = process.env.MOVIE_API_KEY || `55325b5628dbe9dd987f442fdc49f072` ;
 
 const MovieURL = process.env.MOVIES_API_URL || `https://api.themoviedb.org/3/search/movie?` ;
@@ -38,6 +40,8 @@ app.get('/', (req, res) => {
 app.get('/weather', getWeatherData)
 
 app.get('/movies', handlemovies);
+
+app.get('/dog', getDogs);
 
 app.get('*', (req, res) => {
 
